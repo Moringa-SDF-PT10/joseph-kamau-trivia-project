@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Project</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="main-body">
+    <div id="main-container">
+        <div class="child-container-one">
+            <h1>Computer Quiz Game</h1>
+            <div id="paragraph-container">
+                <p>Putting Your Computer Knowledge to the Test</p>
+            </div>
+            <button id="start-game">Start Quiz</button>
+        </div>
+        <div class="child-container-two">
+            <h2 id="question-counter">1 of 10 Question</h2>
+            <div>
+                <form action="">
+                    <label for="question">Question</label>
+                    <input type="text" id="question" name="question">
+    
+                    <div class="multiple-choices">
+                        <label for="choiceA" class="choice-label">(A)</label>
+                        <input type="text" id="choiceA" name="choiceA">
+                        <input type="radio" name="answer" value="A" required>
+                    </div>
+
+                    <div class="multiple-choices">
+                        <label for="choiceB" class="choice-label">(B)</label>
+                        <input type="text" id="choiceB" name="choiceB">
+                        <input type="radio" name="answer" value="B">
+                    </div>
+
+                    <div class="multiple-choices">
+                        <label for="choiceC" class="choice-label">(C)</label>
+                        <input type="text" id="choiceC" name="choiceC">
+                        <input type="radio" name="answer" value="C">
+                    </div>
+
+                    <div class="multiple-choices">
+                        <label for="choiceD" class="choice-label">(D)</label>
+                        <input type="text" id="choiceD" name="choiceD">
+                        <input type="radio" name="answer" value="D">
+                    </div>
+
+                    <button type="submit" id="submit-button">Submit your answer</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

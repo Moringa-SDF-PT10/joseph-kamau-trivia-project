@@ -1,0 +1,98 @@
+#main-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1, h2 {
+    color: indigo;
+}
+#paragraph-container p {
+    color: rgb(63, 7, 63);
+}
+#main-container {
+    background-color: rgb(132, 132, 219);
+    display: flex;
+    margin-top: 50px;
+    border: none;
+    border-radius: 20px;
+}
+.child-container-one {
+    border: 2px solid grey;
+    text-align: center;
+    width: 400px;
+    display: grid;
+    place-items: center;
+    height: 300px;
+    border: none;
+}
+.child-container-two {
+    border: 2px solid grey;
+    text-align: center;
+    width: 800px;
+    height: 600px;
+    border: none;
+}
+.child-container-two h2 {
+    border-bottom: 2px solid grey;
+}
+/* #paragraph-container {
+    width: 200px;
+} */
+#submit-button, #start-game {
+    background-color: indigo;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    /* box-shadow: 0 4px 6px rgba(0,0,0,0.1); */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#submit-button:hover, #start-game:hover {
+    background-color: rgb(226, 151, 226);
+    transform: translateY(-2px);
+}
+#submit-button:active, #start-game:active {
+    background-color: #3730a3;
+    transform: translateY(0);
+}
+form {
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #f9fafb;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    font-family: Arial, Helvetica, sans-serif;
+}
+form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #374151;
+}
+form input[type="text"] {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+form .multiple-choices {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.multiple-choices label {
+    flex: 0 0 30px;
+}
+.multiple-choices input[type=text]{
+    flex: 1;
+    margin-right: 1rem;
+}
+.multiple-choices input[type="radio"] {
+    transform: scale(1.2);
+}
