@@ -12,6 +12,8 @@ h1, h2 {
 #main-container {
     background-color: rgb(132, 132, 219);
     display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
     border: none;
     border-radius: 20px;

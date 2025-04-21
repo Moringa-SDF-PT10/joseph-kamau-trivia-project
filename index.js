@@ -4,13 +4,16 @@ document.addEventListener('DOMContentLoaded', function(){
     let currentValue = parseInt(questionCounter.textContent, 10)
     const startGameContainer = document.querySelector('.child-container-one')
     const startGameBtn = document.getElementById('start-game')
+    // console.log(startGameBtn)
     const questionsContainer = document.querySelector('.child-container-two')
 
     
 
     let currentQnIndex = 0
     let allTriviaQns = []
+    // console.log(allTriviaQns)
     let initialScore = 0
+    // console.log(initialScore)
 
     const decodeHTML = (html) => {
         const text = document.createElement('textarea')
@@ -73,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function(){
     let currentQuestionValue = 1
     const totalQuestionsValue = 10
     const correctAnswer = questionTextContent.dataset.correct
+    console.log(correctAnswer)
 
     function handleSubmitBtnClickEvent(event){
         event.preventDefault()
@@ -92,10 +96,47 @@ document.addEventListener('DOMContentLoaded', function(){
             renderEachQuestion(currentQnIndex)
         } else {
             questionsContainer.innerHTML = `
+                <div id="challenge-completed-page">
                 <h2>Challenge Completed</h2>
-                <p>Your score is ${initialScore} / ${allTriviaQns.length}</p>
-                <button onclick="location.reload()">Try Again</button>
+                <p id="your-score-is">Your score is ${initialScore} / ${allTriviaQns.length}</p>
+                <button id="try-again-button" onclick="location.reload()">Try Again</button>
+                </div>
             `
+            const challengeCompletedPage = document.getElementById('challenge-completed-page')
+            challengeCompletedPage.style.display = "flex"
+            challengeCompletedPage.style.flexDirection = "column"
+            challengeCompletedPage.style.justifyContent = "center"
+            challengeCompletedPage.style.alignItems = "center"
+            challengeCompletedPage.style.border = "2px solid blue"
+            challengeCompletedPage.style.width = "400px"
+            challengeCompletedPage.style.height = "300px"
+            challengeCompletedPage.style.textAlign = "center"
+            challengeCompletedPage.style.padding = "20px"
+            challengeCompletedPage.style.marginTop = "100px"
+            challengeCompletedPage.style.marginLeft = "180px"
+            challengeCompletedPage.style.borderRadius = "20px"
+            challengeCompletedPage.style.boxShadow = "0 10px 30px rgba(254, 255, 255, 0.3)"
+
+            const yourScoreIs = document.getElementById('your-score-is')
+            yourScoreIs.style.color = "purple"
+
+            const tryAgainBtn = document.getElementById('try-again-button')
+            tryAgainBtn.style.backgroundColor = "violet"
+            tryAgainBtn.style.padding = "10px 20px"
+            tryAgainBtn.style.border = "none"
+            tryAgainBtn.style.color = "white"
+            tryAgainBtn.style.cursor = "pointer"
+            tryAgainBtn.style.borderRadius = "5px"
+            tryAgainBtn.style.fontWeight = "600"
+
+            function mouseEnterCallBackFunction(event){
+                tryAgainBtn.style.backgroundColor = "#365e41"
+            }
+            function mouseLeaveCallBackFunction(event){
+                tryAgainBtn.style.backgroundColor = "violet"
+            }
+            tryAgainBtn.addEventListener("mouseenter", mouseEnterCallBackFunction)
+            tryAgainBtn.addEventListener("mouseleave", mouseLeaveCallBackFunction)
         }
         // console.log("form submitted successfully")
     }
