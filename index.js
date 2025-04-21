@@ -153,20 +153,23 @@ document.addEventListener('DOMContentLoaded', function(){
     questionsContainer.appendChild(correctOrIncorrectContainer)
 
     const answerRadios = document.querySelectorAll('input[name="answer"]')
-    const handleFeedbackFunction = () => {
+    const handleFeedbackFunction = (radio) => {
         const selectedValue = radio.value
         const selectedText = choicesTextContents[selectedValue].value
         const correctAnswer = questionTextContent.dataset.correct
 
         if (selectedText === correctAnswer) {
             correctOrIncorrectContainer.textContent = "✅ Correct Answer!"
-            correctOrIncorrectContainer.style.color = "#bdeb34"
+            correctOrIncorrectContainer.style.color = "black"
+            correctOrIncorrectContainer.fontWeight = "bold"
         } else {
             correctOrIncorrectContainer.textContent = "✖️ incorrect Answer!"
             correctOrIncorrectContainer.style.color = "#e83ca9"
+            correctOrIncorrectContainer.style.fontWeight = "bold"
+
         }
     }
     answerRadios.forEach(radio => {
-        radio.addEventListener("change", handleFeedbackFunction)
+        radio.addEventListener("change", () => handleFeedbackFunction(radio))
     })
 })
