@@ -75,8 +75,7 @@ document.addEventListener('DOMContentLoaded', function(){
     
     let currentQuestionValue = 1
     const totalQuestionsValue = 10
-    const correctAnswer = questionTextContent.dataset.correct
-    console.log(correctAnswer)
+
 
     function handleSubmitBtnClickEvent(event){
         event.preventDefault()
@@ -87,6 +86,8 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         const selectedValue = selectedRadio.value
         // questionTextContent.dataset.correct = correctAnswer
+        const correctAnswer = questionTextContent.dataset.correct
+        console.log(correctAnswer)
 
         if (choicesTextContents[selectedValue].value === correctAnswer){
             initialScore++
@@ -142,4 +143,30 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     submitButton.addEventListener("click", handleSubmitBtnClickEvent)
+
+    const correctOrIncorrectContainer = document.createElement('div')
+    correctOrIncorrectContainer.id = "correct-or-incorrect-container"
+    correctOrIncorrectContainer.style.fontSize = "15px"
+    correctOrIncorrectContainer.style.fontWeight = "bold"
+    correctOrIncorrectContainer.style.marginTop = "20px"
+
+    questionsContainer.appendChild(correctOrIncorrectContainer)
+
+    const answerRadios = document.querySelectorAll('input[name="answer"]')
+    const handleFeedbackFunction = () => {
+        const selectedValue = radio.value
+        const selectedText = choicesTextContents[selectedValue].value
+        const correctAnswer = questionTextContent.dataset.correct
+
+        if (selectedText === correctAnswer) {
+            correctOrIncorrectContainer.textContent = "✅ Correct Answer!"
+            correctOrIncorrectContainer.style.color = "#bdeb34"
+        } else {
+            correctOrIncorrectContainer.textContent = "✖️ incorrect Answer!"
+            correctOrIncorrectContainer.style.color = "#e83ca9"
+        }
+    }
+    answerRadios.forEach(radio => {
+        radio.addEventListener("change", handleFeedbackFunction)
+    })
 })
